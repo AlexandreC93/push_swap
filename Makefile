@@ -1,4 +1,14 @@
+CC = gcc
 NAME = push_swap.a
+AR = ar crs
+LIBFT = libft
+
+SRC = push_swap.c \
+
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+OBJ = $(SRC:%.c=%.o)
+all = $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(LIBFT)
@@ -6,3 +16,8 @@ $(NAME): $(OBJ)
 	@mv libft.a $(NAME)
 	$(AR) $(NAME) $(OBJ)
 
+clean:
+	$(RM) $(OBJ)
+
+fclean: clean
+	$(RM) $(NAME)
