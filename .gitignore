@@ -1,4 +1,5 @@
 push_swap_visualizer-master/
-*.swp
 a.out
+*.swp
 *.o
+*.a
