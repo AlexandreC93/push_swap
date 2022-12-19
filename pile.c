@@ -7,6 +7,7 @@ t_p	pile_alloc(int size)
 
 	pile.nbr = (int*)malloc(sizeof(int) * size);
 	pile.size = size;
+	pile.min_size = 0;
 	return (pile);
 }
 

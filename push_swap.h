@@ -9,6 +9,7 @@ typedef struct	s_pile
 {
 	int		size;
 	int		*nbr;
+	int		min_size;
 }	t_p;
 
 t_p	pile_init(char **av);
