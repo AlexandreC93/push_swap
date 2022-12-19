@@ -47,11 +47,11 @@ void	pile_fill(t_p *p, char **list)
 	while (list[i])
 	{
 		*tmp = ft_atoi(list[i]);
-		printf("[%d]\n", *tmp);
+		//printf("[%d]\n", *tmp);
 		tmp++;
 		i++;
 	}
-	printf("{A}\n");
+	//printf("{A}\n");
 }
 
 void	pile_free(t_p *p)

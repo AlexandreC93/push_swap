@@ -6,6 +6,7 @@ LIBFT = libft
 SRC = push_swap.c \
 		pile.c \
 		op.c \
+		sort.c \
 
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f

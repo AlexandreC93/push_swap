@@ -3,17 +3,23 @@
 
 int	ft_swapp(t_p *p_a, t_p *p_b)
 {
-	// int		i;
 	int		*tmp;
-	// int		size;
 	int		buff;
 
-	// i = 1;
 	tmp = p_a->nbr;
-	// size = p_a->size;
-	buff = tmp[-1];
-	tmp[-1] = tmp[-2];
-	tmp[-2] = buff;
+/*
+	printf("avant %d\n", tmp[0]);
+	printf("avant %d\n", tmp[1]);
+	printf("avant %d\n", tmp[2]);
+*/
+	buff = tmp[0];
+	tmp[0] = tmp[1];
+	tmp[1] = buff;
+/*
+	printf("apres %d\n", tmp[0]);
+	printf("apres %d\n", tmp[1]);
+	printf("apres %d\n", tmp[2]);
+*/
 	if (p_b)
 		ft_swapp(p_b, NULL);
 	return (1);
@@ -28,19 +34,19 @@ int	ft_push(t_p *p_a, t_p *p_b)
 	tmp_b = p_b->nbr;
 
 	p_b->size++;
-	tmp_b[p_b->size - 1] = tmp_a[p_a->size - 1];
+	tmp_b[p_b->size - 1] = tmp_a[0];
 	p_a->size--; 
 
 	return (1);
 }
 
-int	ft_rotate(t_p *p_a, t_p *p_b)
+int	ft_revrotate(t_p *p_a, t_p *p_b)
 {
 	int		buff;
 	int		*tmp;
 	int		size;
 
-	size = p_a->size;
+	size = p_a->size + 1;
 	tmp = p_a->nbr;
 	buff = tmp[size - 2];
 	while (--size >= 2)
@@ -51,7 +57,7 @@ int	ft_rotate(t_p *p_a, t_p *p_b)
 	return (1);
 }
 
-int	ft_revrotate(t_p *p_a, t_p *p_b)
+int	ft_rotate(t_p *p_a, t_p *p_b)
 {
 	int		buff;
 	int		*tmp;
@@ -61,10 +67,20 @@ int	ft_revrotate(t_p *p_a, t_p *p_b)
 	size = p_a->size;
 	tmp = p_a->nbr;
 	i = -1;
-	buff = tmp[size - 2];
+/*
+	printf("avant [%d]\n", tmp[0]);
+	printf("avant [%d]\n", tmp[1]);
+	printf("avant [%d]\n", tmp[2]);
+*/
+	buff = tmp[0];
 	while (++i < size)
 		tmp[i] = tmp [i + 1];
 	tmp[size - 1] = buff;
+/*
+	printf("aprs [%d]\n", tmp[0]);
+	printf("aprs [%d]\n", tmp[1]);
+	printf("aprs [%d]\n", tmp[2]);
+*/
 	if (p_b)
 		ft_revrotate(p_b, NULL);
 	return (1);
