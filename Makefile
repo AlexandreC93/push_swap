@@ -7,6 +7,8 @@ SRC = push_swap.c \
 		pile.c \
 		op.c \
 		sort.c \
+		sorting.c \
+		utils.c \
 
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f

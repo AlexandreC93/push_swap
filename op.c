@@ -23,7 +23,7 @@ int	ft_push(t_p *p_a, t_p *p_b)
 	tmp_a = p_a->nbr;
 	tmp_b = p_b->nbr;
 	p_b->size++;
-	printf("min size >> %d\n", p_a->min_size);
+	//printf("min size >> %d\n", p_a->min_size);
 	tmp_b[0] = tmp_a[p_a->min_size];
 	p_a->size--;
 	p_a->min_size++; 

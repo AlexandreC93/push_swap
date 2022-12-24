@@ -1,4 +1,4 @@
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int			find_bigger(t_p pile, int *b)
 {
@@ -18,7 +18,7 @@ int			find_bigger(t_p pile, int *b)
 	return (i);
 }
 
-static int	check_nbr(char **list)
+int	check_nbr(char **list)
 {
 	int		i;
 	int		j;
@@ -26,7 +26,7 @@ static int	check_nbr(char **list)
 	i = 1;
 	while ((list[i] && list[i][0] == '-') || !ft_strcmp(list[i], "--"))
 	{
-		if (ISNUM(list[i][1]))
+		if (ft_isdigit(list[i][1]))
 			break ;
 		i++;
 	}
@@ -37,7 +37,7 @@ static int	check_nbr(char **list)
 			j++;
 		while (list[i][j])
 		{
-			if (!ISNUM(list[i][j]))
+			if (!ft_isdigit(list[i][j]))
 				return (0);
 			j++;
 		}
@@ -46,7 +46,7 @@ static int	check_nbr(char **list)
 	return (1);
 }
 
-static int	check_double(char **list)
+int	check_double(char **list)
 {
 	int		i;
 	int		j;
@@ -57,7 +57,7 @@ static int	check_double(char **list)
 		j = i + 1;
 		while (list[j])
 		{
-			if (!strcmp(list[i], list[j]))
+			if (!ft_strcmp(list[i], list[j]))
 				return (0);
 			j++;
 		}
@@ -66,7 +66,7 @@ static int	check_double(char **list)
 	return (1);
 }
 
-static int	check_max(char **list)
+int	check_max(char **list)
 {
 	int		i;
 
