@@ -20,8 +20,9 @@ int	push_swap(t_p p_a, char **av)
 	if (p_a.size > 2 && (cases = is_sorted(&p_a)))
 	{
 		ft_putstr_fd("lets go le tri !", 1);
-		op = pile_sort(&p_a, &p_b);
+		op = pile_sort(&p_a, &p_b, cases);
 	}
+	printf("check");
 	//if (p_a.size == 3)
 	//	op += sort_3(&p_a);
 	//op += sort_5(&p_a, &p_b);

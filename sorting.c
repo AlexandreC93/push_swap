@@ -13,17 +13,18 @@ int		is_sorted(t_p *p_a)
 
 	tmp = p_a->nbr;
 	i = 1;
+	printf("tours #[%d]", i);
 	while (i <= p_a->size - 3)
 	{
-		if ((tmp[i] < tmp[i + 1]) || (tmp[i] > tmp[i + 1]))
+		if (tmp[i] < tmp[i + 1])
 			return (1);
 		i++;
 	}
-	if (CASE_A && CASE_B)
+	if (tmp[0] < tmp[1] && tmp[i] < tmp[i + 1])
 		return (-3);
-	if (CASE_A)
+	if (tmp[0] < tmp[1])
 		return (-2);
-	if (CASE_B)
+	if (tmp[i] < tmp[i + 1])
 		return (-1);
 	return (0);
 }
@@ -33,6 +34,7 @@ int		pile_sort(t_p *p_a, t_p *p_b, int cases)
 	int		op;
 
 	op = 0;
+	//printf("cases >>> %d\n", cases);
 	if (p_a->size == 3)
 		op += sort_3(p_a);
 	else if (cases == -3)
@@ -73,7 +75,7 @@ int	sort_default(t_p *p_a, t_p *p_b)
 		pos = find_bigger(*p_a, &b);
 		if (b == (p_a->nbr)[p_a->size - 1])
 			op += ft_push(p_a, p_b);
-		else if (pos > A_MED)
+		else if (pos > (p_a->size / 2))
 			op += ft_rotate(p_a, NULL);
 		else
 			op += ft_revrotate(p_a, NULL);
